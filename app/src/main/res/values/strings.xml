@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Movie Expert</string>
+    <string name="application_icon">Application icon</string>
+    <string name="title">Title</string>
+    <string name="poster_image">Poster Image</string>
+    <string name="release_date">Release Date</string>
+    <string name="overview">Overview</string>
+    <string name="score">Score</string>
+    <string name="menu_fav">Favorite</string>
+    <string name="fav_movie">Favorite Movie</string>
+    <string name="title_favorite">Favorite Movie</string>
+</resources>
