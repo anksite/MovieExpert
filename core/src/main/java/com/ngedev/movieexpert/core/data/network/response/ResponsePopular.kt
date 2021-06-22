@@ -1,6 +1,8 @@
 package com.ngedev.movieexpert.core.data.network.response
 
+import com.google.gson.annotations.SerializedName
+
 data class ResponsePopular(
-    val results: List<MovieResponse>
+    @SerializedName("results") val results: List<MovieResponse>
 )
 

@@ -8,9 +8,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.RequestManager
 import com.ngedev.movieexpert.R
-import com.ngedev.movieexpert.databinding.ActivityDetailBinding
 import com.ngedev.movieexpert.core.domain.model.MovieData
 import com.ngedev.movieexpert.core.util.Cons
+import com.ngedev.movieexpert.databinding.ActivityDetailBinding
 import com.ngedev.movieexpert.view.vm.VMMovieDetail
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -64,10 +64,11 @@ class DetailActivity : AppCompatActivity() {
             R.id.menu_favorite -> {
                 if (mIsFavMovie) {
                     mMovieData?.let { vmShow.deleteFavorite(it) }
-                    Toast.makeText(this, "Remove From Favorite", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Remove From Favorite", Toast.LENGTH_SHORT)
+                        .show()
                 } else {
                     mMovieData?.let { vmShow.insertFavorite(it) }
-                    Toast.makeText(this, "Add to Favorite", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Add to Favorite", Toast.LENGTH_SHORT).show()
                 }
                 invalidateOptionsMenu()
             }

@@ -10,19 +10,17 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ngedev.movieexpert.R
-import com.ngedev.movieexpert.databinding.ActivityMainBinding
-import com.ngedev.movieexpert.core.util.Cons
 import com.ngedev.movieexpert.core.ui.RecyclerAdapterMovie
+import com.ngedev.movieexpert.core.util.Cons
+import com.ngedev.movieexpert.databinding.ActivityMainBinding
 import com.ngedev.movieexpert.view.vm.VMMovie
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    @Inject
-    lateinit var mAdapter: RecyclerAdapterMovie
+    private lateinit var mAdapter: RecyclerAdapterMovie
 
     private val vmMovie: VMMovie by viewModels()
 
@@ -32,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        mAdapter = RecyclerAdapterMovie()
         val layoutManager = GridLayoutManager(this, 2)
 
         binding.rvListMovie.apply {

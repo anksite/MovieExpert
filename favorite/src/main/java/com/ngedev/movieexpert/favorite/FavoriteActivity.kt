@@ -6,11 +6,11 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.ngedev.movieexpert.core.ui.RecyclerAdapterMovie
+import com.ngedev.movieexpert.core.util.Cons
 import com.ngedev.movieexpert.di.FavoriteModuleDependencies
 import com.ngedev.movieexpert.favorite.databinding.ActivityFavoriteBinding
-import com.ngedev.movieexpert.core.util.Cons
 import com.ngedev.movieexpert.view.DetailActivity
-import com.ngedev.movieexpert.core.ui.RecyclerAdapterMovie
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 

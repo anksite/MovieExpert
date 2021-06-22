@@ -3,7 +3,6 @@ package com.ngedev.movieexpert.core.di
 import android.content.Context
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-import com.ngedev.movieexpert.core.ui.RecyclerAdapterMovie
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +18,4 @@ class UtilModule {
     @Provides
     fun provideGlide(@ApplicationContext context: Context): RequestManager = Glide.with(context)
 
-    @Singleton
-    @Provides
-    fun provideRecyclerAdapterMovie(): RecyclerAdapterMovie = RecyclerAdapterMovie()
 }
