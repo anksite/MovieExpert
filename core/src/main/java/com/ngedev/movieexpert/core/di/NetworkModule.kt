@@ -1,5 +1,6 @@
 package com.ngedev.movieexpert.core.di
 
+import com.ngedev.movieexpert.core.BuildConfig
 import com.ngedev.movieexpert.core.data.network.InterfaceApi
 import com.ngedev.movieexpert.core.util.Cons
 import dagger.Module
@@ -13,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {
@@ -25,12 +27,18 @@ class NetworkModule {
             .add(Cons.BASE_API_URL, "sha256/++MBgDH5WGvL9Bcn5Be30cRcL0f5O+NyoXuWtQdX1aI=")
             .build()
 
-        return OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        val httpClient = OkHttpClient.Builder()
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
             .certificatePinner(pinner)
-            .build()
+
+        if(BuildConfig.DEBUG){
+            httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        }
+
+        return httpClient.build()
+
+
     }
 
     @Provides
