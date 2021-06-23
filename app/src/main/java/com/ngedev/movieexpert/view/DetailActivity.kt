@@ -41,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
                 mGlide.load(Cons.IMG_BASE_URL + it.poster_path).into(ivPoster)
 
                 tvTitle.text = it.title
-                tvDate.text = it.release_date
+                tvDate.text = if(it.release_date.isNullOrBlank()) "Unknown" else it.release_date
                 tvScore.text = it.vote_average
                 tvOverview.text = it.overview
 
